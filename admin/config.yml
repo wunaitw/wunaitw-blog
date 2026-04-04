@@ -1,0 +1,21 @@
+backend:
+  name: github
+  repo: wunaitw/wunaitw-blog
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "posts"
+    label: "文章"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "標題", name: "title", widget: "string"}
+      - {label: "發布日期", name: "date", widget: "datetime"}
+      - {label: "封面圖片", name: "thumbnail", widget: "image", required: false}
+      - {label: "摘要", name: "excerpt", widget: "text"}
+      - {label: "標籤", name: "tags", widget: "select", multiple: true, options: ["景點", "育兒", "活動", "食記", "生活"]}
+      - {label: "內容", name: "body", widget: "markdown"}
