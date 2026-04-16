@@ -3,21 +3,260 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>軟糖媽咪 Ivy 的親子日誌</title>
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<title>軟糖媽咪Ivy生活筆記</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Noto Sans TC', sans-serif; background: #eef7f3; color: #3a3a3a; }
+
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 1.5rem 1rem; }
+
+  /* Header */
+  .header { display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 1.5rem; margin-bottom: 1.5rem; background: linear-gradient(120deg, #daf0e8 0%, #e8f4f0 50%, #ddeef8 100%); border-radius: 20px; border: 1px solid #c4dfd4; }
+  .header-left { display: flex; align-items: center; gap: 14px; }
+  .avatar { width: 52px; height: 52px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; overflow: hidden; border: 2px solid #b8ddd0; }
+  .avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .blog-name { font-size: 16px; font-weight: 700; color: #4a8c72; }
+  .blog-bio { font-size: 12px; color: #7ab09a; margin-top: 3px; }
+  .social-links { display: flex; gap: 8px; }
+  .social-btn { width: 34px; height: 34px; border-radius: 50%; border: 1px solid #b8ddd0; background: rgba(255,255,255,0.7); display: flex; align-items: center; justify-content: center; cursor: pointer; text-decoration: none; transition: background 0.2s; }
+  .social-btn:hover { background: rgba(255,255,255,0.95); }
+  .social-btn svg { width: 16px; height: 16px; }
+
+  /* Filters */
+  .filters { display: flex; flex-direction: column; gap: 8px; margin-bottom: 1.5rem; background: rgba(255,255,255,0.75); border-radius: 14px; padding: 12px 14px; border: 1px solid #cce8dc; }
+  .filter-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .filter-label { font-size: 11px; color: #8dc0aa; min-width: 28px; font-weight: 500; }
+  .pill { padding: 5px 13px; border-radius: 20px; font-size: 12px; cursor: pointer; border: 1px solid #c4e0d4; background: rgba(255,255,255,0.8); color: #5a9a82; transition: all 0.15s; user-select: none; }
+  .pill:hover { border-color: #8cc8b0; color: #3a7a62; background: #fff; }
+  .pill.on { background: #7ec4a8; color: #fff; border-color: #7ec4a8; font-weight: 500; }
+
+  /* Grid */
+  .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+  @media (max-width: 700px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 420px) { .grid { grid-template-columns: 1fr; } }
+
+  /* Card */
+  .card { background: rgba(255,255,255,0.88); border: 1px solid #d0e8de; border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s; }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(100,185,155,0.16); }
+  .card.hidden { display: none; }
+
+  /* Slider */
+  .slider { position: relative; width: 100%; aspect-ratio: 4/3; overflow: hidden; background: #f5f3f0; }
+  .slides { display: flex; height: 100%; transition: transform 0.3s ease; }
+  .slide { min-width: 100%; height: 100%; flex-shrink: 0; }
+  .slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .slide-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 26px; height: 26px; border-radius: 50%; background: rgba(255,255,255,0.9); border: none; cursor: pointer; font-size: 14px; color: #333; display: flex; align-items: center; justify-content: center; z-index: 2; }
+  .slide-btn.prev { left: 7px; }
+  .slide-btn.next { right: 7px; }
+  .dots { position: absolute; bottom: 7px; left: 50%; transform: translateX(-50%); display: flex; gap: 4px; z-index: 2; }
+  .dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,0.5); transition: background 0.2s; }
+  .dot.on { background: rgba(255,255,255,0.95); }
+  .cat-badge { position: absolute; top: 9px; left: 9px; padding: 3px 9px; border-radius: 20px; font-size: 10px; font-weight: 500; z-index: 2; }
+  .region-badge { position: absolute; top: 9px; right: 9px; padding: 3px 9px; border-radius: 20px; font-size: 10px; background: rgba(255,255,255,0.88); color: #555; z-index: 2; }
+
+  /* Category colors — 輕柔水彩感 */
+  .cat-育兒 { background: #fce8f5; color: #c06898; }
+  .cat-旅遊 { background: #dff2ea; color: #3a8a66; }
+  .cat-美食 { background: #fef4e4; color: #b07830; }
+  .cat-寵物 { background: #e4effe; color: #4872c0; }
+  .cat-運動 { background: #fefae4; color: #9a8030; }
+  .cat-旅遊票券 { background: #ece4fe; color: #7050c0; }
+
+  /* Card body */
+  .body { padding: 11px 13px 13px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+  .card-date { font-size: 10px; color: #a8c8bc; }
+  .card-title { font-size: 13px; font-weight: 700; color: #3a5a50; line-height: 1.45; }
+  .card-excerpt { font-size: 11px; color: #7a9a90; line-height: 1.75; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: auto; padding-top: 8px; border-top: 1px solid #e4f2ec; }
+  .chip { padding: 4px 9px; border-radius: 20px; font-size: 10px; font-weight: 500; border: 1px solid; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 3px; transition: opacity 0.15s; }
+  .chip:hover { opacity: 0.72; }
+  .chip-map { background: #dff2ea; color: #3a8a66; border-color: #9ad4b8; }
+  .chip-book { background: #e4effe; color: #4872c0; border-color: #a0bce8; }
+  .chip-shop { background: #fef4e4; color: #b07830; border-color: #e8c488; }
+  .chip-ig { background: #fce8f5; color: #c06898; border-color: #e8a8d0; }
+  .chip-yt { background: #feeaea; color: #b83030; border-color: #f0a0a0; }
+  .chip-thread { background: #f0f0f0; color: #606060; border-color: #d0d0d0; }
+  .chip-fb { background: #e4effe; color: #3860c0; border-color: #a0bce8; }
+  .chip-ticket { background: #ece4fe; color: #7050c0; border-color: #c0a8e8; }
+  .chip-read { background: #7ec4a8; color: #fff; border-color: #7ec4a8; }
+
+  /* No results */
+  .no-results { grid-column: 1/-1; text-align: center; padding: 3rem 0; color: #b8d0c8; font-size: 14px; display: none; }
+</style>
 </head>
 <body>
-<h1>網站建置中</h1>
+<div class="wrap">
+
+  <div class="header">
+    <div class="header-left">
+      <div class="avatar"><img src="icon-192.png" alt="軟糖媽咪Ivy"></div>
+      <div>
+        <div class="blog-name">軟糖媽咪Ivy生活筆記</div>
+        <div class="blog-bio">育兒｜旅遊｜寵物｜運動｜美食</div>
+      </div>
+    </div>
+    <div class="social-links">
+      <a class="social-btn" href="https://www.instagram.com/ivyhuanglichia" target="_blank" title="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#c13584" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#c13584" stroke="none"/></svg>
+      </a>
+      <a class="social-btn" href="https://youtube.com/channel/UC80zKCgzP-OPnzbIzzC47Rg" target="_blank" title="YouTube">
+        <svg viewBox="0 0 24 24" fill="#ff0000"><path d="M23 7s-.3-2-1.2-2.8c-1.1-1.2-2.4-1.2-3-1.3C16.2 2.8 12 2.8 12 2.8s-4.2 0-6.8.1c-.6.1-1.9.1-3 1.3C1.3 5 1 7 1 7S.7 9.1.7 11.3v2c0 2.1.3 4.2.3 4.2s.3 2 1.2 2.8c1.1 1.2 2.6 1.1 3.3 1.2C7.5 21.6 12 21.6 12 21.6s4.2 0 6.8-.2c.6-.1 1.9-.1 3-1.3.9-.8 1.2-2.8 1.2-2.8s.3-2.1.3-4.2v-2C23.3 9.1 23 7 23 7zM9.7 15.5V8.4l8.1 3.6-8.1 3.5z"/></svg>
+      </a>
+      <a class="social-btn" href="https://www.threads.com/@ivyhuanglichia" target="_blank" title="Threads">
+        <svg viewBox="0 0 24 24" fill="#1a1a1a"><path d="M12.9 11.5c-.2-.1-2.5-.7-3.5-.3-.5.2-.8.6-.8 1.1 0 .6.4 1 1.2 1.3 1.5.5 3.2-.1 3.8-1.4.1-.2.2-.4.2-.7h-.9zm1.5-1.7c-.5-.9-1.4-1.5-2.4-1.7-1.4-.3-2.8.1-3.8 1.1-.8.8-1.2 2-1.1 3.1.1 1.3.8 2.4 1.9 3 .9.5 2 .6 3 .3 1.2-.4 2.2-1.3 2.6-2.5.5-1.2.4-2.4-.2-3.3zm3.1-4c-1.4-1.7-3.5-2.7-5.7-2.7-2 0-3.9.8-5.3 2.2C5.2 6.7 4.5 8.8 4.6 11c.1 2.1 1 4 2.6 5.4 1.5 1.3 3.5 2 5.5 1.9 1.7-.1 3.4-.7 4.7-1.9 1.4-1.3 2.2-3.1 2.2-5 0-1.5-.5-3-1.5-4.1l-.6-.5z"/></svg>
+      </a>
+      <a class="social-btn" href="https://www.facebook.com/share/1ByQokkJ1g/" target="_blank" title="Facebook">
+        <svg viewBox="0 0 24 24" fill="#1877f2"><path d="M24 12.1C24 5.4 18.6 0 12 0S0 5.4 0 12.1C0 18.1 4.4 23.1 10.1 24v-8.4H7.1v-3.5h3V9.7c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9v2.2h3.3l-.5 3.5H13.8V24C19.6 23.1 24 18.1 24 12.1z"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="filters">
+    <div class="filter-row" id="cat-filters">
+      <span class="filter-label">分類</span>
+      <span class="pill on" data-cat="all">全部</span>
+      <span class="pill" data-cat="育兒">育兒</span>
+      <span class="pill" data-cat="旅遊">旅遊</span>
+      <span class="pill" data-cat="美食">美食</span>
+      <span class="pill" data-cat="寵物">寵物</span>
+      <span class="pill" data-cat="運動">運動</span>
+      <span class="pill" data-cat="旅遊票券">旅遊票券</span>
+    </div>
+    <div class="filter-row" id="region-filters">
+      <span class="filter-label">地區</span>
+      <span class="pill on" data-region="all">全部</span>
+      <span class="pill" data-region="台北">台北</span>
+      <span class="pill" data-region="新北">新北</span>
+      <span class="pill" data-region="宜蘭">宜蘭</span>
+      <span class="pill" data-region="桃園">桃園</span>
+      <span class="pill" data-region="新竹">新竹</span>
+      <span class="pill" data-region="苗栗">苗栗</span>
+      <span class="pill" data-region="沖繩">沖繩</span>
+      <span class="pill" data-region="東京">東京</span>
+      <span class="pill" data-region="大阪">大阪</span>
+    </div>
+  </div>
+
+  <div class="grid" id="grid">
+
+    <!-- 甲蟲秘境 -->
+    <div class="card" data-cat="育兒" data-region="台北">
+      <div class="slider" data-idx="0">
+        <span class="cat-badge cat-育兒">育兒</span>
+        <span class="region-badge">台北</span>
+        <div class="slides">
+          <div class="slide"><img src="https://drive.google.com/thumbnail?id=1iYErnb20nboHNyrzEhQ9N_f6aVRhHRm8&sz=w800" alt="甲蟲秘境1" loading="lazy"></div>
+          <div class="slide"><img src="https://drive.google.com/thumbnail?id=1VgWkU0j0F0JkNZIrUrxWtuEYKKEr7XTQ&sz=w800" alt="甲蟲秘境2" loading="lazy"></div>
+          <div class="slide"><img src="https://drive.google.com/thumbnail?id=1CUwYA7jCBLdD7tcHzdw9jGNR8GDZyy1_&sz=w800" alt="甲蟲秘境3" loading="lazy"></div>
+          <div class="slide"><img src="https://drive.google.com/thumbnail?id=1ktdKIr7FM5EGdySUW_SAKRejzztWhY3-&sz=w800" alt="甲蟲秘境4" loading="lazy"></div>
+          <div class="slide"><img src="https://drive.google.com/thumbnail?id=1FjKYsEW8wxFvK3Xj9GG4Tz8gMV4aAlbC&sz=w800" alt="甲蟲秘境5" loading="lazy"></div>
+          <div class="slide"><img src="https://drive.google.com/thumbnail?id=1gSrAEtdDxmoOP_1SRhvE0m8JIcbaq01P&sz=w800" alt="甲蟲秘境6" loading="lazy"></div>
+        </div>
+        <button class="slide-btn prev">‹</button>
+        <button class="slide-btn next">›</button>
+        <div class="dots">
+          <div class="dot on"></div><div class="dot"></div><div class="dot"></div>
+          <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="card-date">2026 / 04 / 15</div>
+        <div class="card-title">甲蟲秘境</div>
+        <div class="card-excerpt">家裡有喜歡甲蟲的小朋友，絕對要來體驗！環境乾淨且餐點好吃，店員跟老闆都會講解爬蟲類的生態跟飼養方式，還有烹飪課可以做甲蟲雞蛋糕 ⭐⭐⭐⭐⭐</div>
+        <div class="chips">
+          <a class="chip chip-map" href="https://maps.app.goo.gl/CwbUVbv3JEp8g4bs9" target="_blank">📍 地圖</a>
+          <a class="chip chip-book" href="https://inline.app/booking/-Ms-c35Cl4tkU6gcEp95:inline-live-2/-Ms-c3J2V-OLEqlouoG3" target="_blank">📅 訂位</a>
+          <a class="chip chip-ig" href="https://www.instagram.com/p/DWu0Jg9ktTu/" target="_blank">📷 IG</a>
+          <a class="chip chip-thread" href="https://www.threads.com/@ivyhuanglichia/post/DWuy7vmkpc4" target="_blank">🧵 Threads</a>
+          <a class="chip chip-read" href="posts/jiachu.html">閱讀全文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 恐龍大復活 -->
+    <div class="card" data-cat="育兒" data-region="台北">
+      <div class="slider" data-idx="0">
+        <span class="cat-badge cat-育兒">育兒</span>
+        <span class="region-badge">台北</span>
+        <div class="slides">
+          <div class="slide"><img src="https://drive.google.com/thumbnail?id=1unQuG8Aqf_47hR69I4WsGOHBESV_ksBX&sz=w800" alt="恐龍大復活1" loading="lazy"></div>
+          <div class="slide"><img src="https://drive.google.com/thumbnail?id=15EJjoYAbV8JO9Ps4f9Oq9fgSjwGatt7a&sz=w800" alt="恐龍大復活2" loading="lazy"></div>
+          <div class="slide"><img src="https://drive.google.com/thumbnail?id=14Q2XWsi6aIw55HiRQBzL0-KzSJ2ErqfT&sz=w800" alt="恐龍大復活3" loading="lazy"></div>
+          <div class="slide"><img src="https://drive.google.com/thumbnail?id=1s2lzsypjg4fyrJnkNcyK2em3A58yFGec&sz=w800" alt="恐龍大復活4" loading="lazy"></div>
+          <div class="slide"><img src="https://drive.google.com/thumbnail?id=1gGiJo9QvmlawSBP7W3zo6mu5pCcvf7OP&sz=w800" alt="恐龍大復活5" loading="lazy"></div>
+          <div class="slide"><img src="https://drive.google.com/thumbnail?id=1dhIPPrbqVkx624cwfw5j9awBeCumaztE&sz=w800" alt="恐龍大復活6" loading="lazy"></div>
+          <div class="slide"><img src="https://drive.google.com/thumbnail?id=1iL6ZaXH1gR5a12JxUfxWnE9QcUVdjFb9&sz=w800" alt="恐龍大復活7" loading="lazy"></div>
+        </div>
+        <button class="slide-btn prev">‹</button>
+        <button class="slide-btn next">›</button>
+        <div class="dots">
+          <div class="dot on"></div><div class="dot"></div><div class="dot"></div>
+          <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="card-date">2026 / 04 / 15</div>
+        <div class="card-title">恐龍大復活關渡探險樂園 🦖</div>
+        <div class="card-excerpt">以為已經過了熱潮，沒想到還是排了約15分鐘才進場。對這活動沒抱啥期待，結果比想像中好玩！入場送代幣券，可餵食恐龍、騎恐龍，看完旁邊就是貨櫃市集。</div>
+        <div class="chips">
+          <a class="chip chip-map" href="https://maps.app.goo.gl/De3qvrzARQwcuz8W9" target="_blank">📍 地圖</a>
+          <a class="chip chip-book" href="https://onelink.one/s/WGmPL" target="_blank">🎫 購票</a>
+          <a class="chip chip-ig" href="https://www.instagram.com/reel/DW_S21JkmMb/" target="_blank">📷 IG</a>
+          <a class="chip chip-thread" href="https://www.threads.com/@ivyhuanglichia/post/DW_RK8HkjHA" target="_blank">🧵 Threads</a>
+          <a class="chip chip-read" href="posts/dinosaur.html">閱讀全文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="no-results" id="no-results">沒有符合的文章</div>
+  </div>
+
+</div>
+
 <script>
-if (window.netlifyIdentity) {
-  window.netlifyIdentity.on("init", user => {
-    if (!user) {
-      window.netlifyIdentity.on("login", () => {
-        document.location.href = "/admin/";
-      });
+  // Slider
+  document.querySelectorAll('.slider').forEach(slider => {
+    let idx = 0;
+    const slides = slider.querySelector('.slides');
+    const dots = slider.querySelectorAll('.dot');
+    const total = slider.querySelectorAll('.slide').length;
+    function go(n) {
+      idx = (n + total) % total;
+      slides.style.transform = `translateX(-${idx * 100}%)`;
+      dots.forEach((d, i) => d.classList.toggle('on', i === idx));
     }
+    slider.querySelector('.prev').addEventListener('click', e => { e.stopPropagation(); go(idx - 1); });
+    slider.querySelector('.next').addEventListener('click', e => { e.stopPropagation(); go(idx + 1); });
   });
-}
+
+  // Filters
+  let activeCat = 'all', activeRegion = 'all';
+  function filterCards() {
+    const cards = document.querySelectorAll('#grid .card');
+    let visible = 0;
+    cards.forEach(card => {
+      const catOk = activeCat === 'all' || card.dataset.cat === activeCat;
+      const regionOk = activeRegion === 'all' || card.dataset.region === activeRegion;
+      const show = catOk && regionOk;
+      card.classList.toggle('hidden', !show);
+      if (show) visible++;
+    });
+    document.getElementById('no-results').style.display = visible === 0 ? 'block' : 'none';
+  }
+  document.querySelectorAll('#cat-filters .pill').forEach(p => {
+    p.addEventListener('click', () => {
+      document.querySelectorAll('#cat-filters .pill').forEach(x => x.classList.remove('on'));
+      p.classList.add('on'); activeCat = p.dataset.cat; filterCards();
+    });
+  });
+  document.querySelectorAll('#region-filters .pill').forEach(p => {
+    p.addEventListener('click', () => {
+      document.querySelectorAll('#region-filters .pill').forEach(x => x.classList.remove('on'));
+      p.classList.add('on'); activeRegion = p.dataset.region; filterCards();
+    });
+  });
 </script>
 </body>
 </html>
