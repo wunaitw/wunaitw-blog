@@ -6,6 +6,15 @@
 <title>軟糖媽咪Ivy生活筆記</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<!-- 不蒜子計數器 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YZ5SNT3L73"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YZ5SNT3L73');
+</script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: 'Noto Sans TC', sans-serif; background: #eef7f3; color: #3a3a3a; }
@@ -24,7 +33,10 @@
   .social-btn:hover { background: rgba(255,255,255,0.95); }
   .social-btn svg { width: 16px; height: 16px; }
 
-  /* Filters */
+  /* Counter bar */
+  .counter-bar { display: flex; align-items: center; justify-content: flex-end; gap: 16px; padding: 6px 4px; margin-bottom: 1rem; }
+  .counter-item { display: flex; align-items: center; gap: 5px; font-size: 12px; color: #8dc0aa; }
+  .counter-num { font-weight: 500; color: #4a8c72; }
   .filters { display: flex; flex-direction: column; gap: 8px; margin-bottom: 1.5rem; background: rgba(255,255,255,0.75); border-radius: 14px; padding: 12px 14px; border: 1px solid #cce8dc; }
   .filter-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
   .filter-label { font-size: 11px; color: #8dc0aa; min-width: 28px; font-weight: 500; }
@@ -43,10 +55,10 @@
   .card.hidden { display: none; }
 
   /* Slider */
-  .slider { position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; background: #f5f3f0; }
+  .slider { position: relative; width: 100%; aspect-ratio: 4/3; overflow: hidden; background: #f5f3f0; }
   .slides { display: flex; height: 100%; transition: transform 0.3s ease; }
   .slide { min-width: 100%; height: 100%; flex-shrink: 0; }
-  .slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .slide img { width: 100%; height: 100%; object-fit: contain; display: block; background: #e8f4ee; }
   .slide-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 26px; height: 26px; border-radius: 50%; background: rgba(255,255,255,0.9); border: none; cursor: pointer; font-size: 14px; color: #333; display: flex; align-items: center; justify-content: center; z-index: 2; }
   .slide-btn.prev { left: 7px; }
   .slide-btn.next { right: 7px; }
@@ -68,7 +80,7 @@
   .body { padding: 11px 13px 13px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
   .card-date { font-size: 10px; color: #a8c8bc; }
   .card-title { font-size: 13px; font-weight: 700; color: #3a5a50; line-height: 1.45; }
-  .card-excerpt { font-size: 11px; color: #7a9a90; line-height: 1.75; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .card-excerpt { font-size: 11px; color: #7a9a90; line-height: 1.75; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; white-space: pre-line; }
   .chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: auto; padding-top: 8px; border-top: 1px solid #e4f2ec; }
   .chip { padding: 4px 9px; border-radius: 20px; font-size: 10px; font-weight: 500; border: 1px solid; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 3px; transition: opacity 0.15s; }
   .chip:hover { opacity: 0.72; }
@@ -111,6 +123,11 @@
         <svg viewBox="0 0 24 24" fill="#1877f2"><path d="M24 12.1C24 5.4 18.6 0 12 0S0 5.4 0 12.1C0 18.1 4.4 23.1 10.1 24v-8.4H7.1v-3.5h3V9.7c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9v2.2h3.3l-.5 3.5H13.8V24C19.6 23.1 24 18.1 24 12.1z"/></svg>
       </a>
     </div>
+  </div>
+
+  <div class="counter-bar">
+    <span class="counter-item">👀 累計瀏覽 <span class="counter-num" id="busuanzi_value_site_pv">--</span> 次</span>
+    <span class="counter-item">🧑‍🤝‍🧑 累計訪客 <span class="counter-num" id="busuanzi_value_site_uv">--</span> 人</span>
   </div>
 
   <div class="filters">
@@ -164,7 +181,8 @@
       <div class="body">
         <div class="card-date">2026 / 04 / 15</div>
         <div class="card-title">甲蟲秘境</div>
-        <div class="card-excerpt">家裡有喜歡甲蟲的小朋友，絕對要來體驗！環境乾淨且餐點好吃，店員跟老闆都會講解爬蟲類的生態跟飼養方式，還有烹飪課可以做甲蟲雞蛋糕 ⭐⭐⭐⭐⭐</div>
+        <div class="card-excerpt">家裡有喜歡甲蟲的小朋友，絕對要來體驗！
+環境乾淨且餐點好吃，店員跟老闆都會講解爬蟲類的生態，還有烹飪課可以做甲蟲雞蛋糕 ⭐⭐⭐⭐⭐</div>
         <div class="chips">
           <a class="chip chip-map" href="https://maps.app.goo.gl/CwbUVbv3JEp8g4bs9" target="_blank">📍 地圖</a>
           <a class="chip chip-book" href="https://inline.app/booking/-Ms-c35Cl4tkU6gcEp95:inline-live-2/-Ms-c3J2V-OLEqlouoG3" target="_blank">📅 訂位</a>
@@ -199,7 +217,9 @@
       <div class="body">
         <div class="card-date">2026 / 04 / 15</div>
         <div class="card-title">恐龍大復活關渡探險樂園 🦖</div>
-        <div class="card-excerpt">以為已經過了熱潮，沒想到還是排了約15分鐘才進場。對這活動沒抱啥期待，結果比想像中好玩！入場送代幣券，可餵食恐龍、騎恐龍，看完旁邊就是貨櫃市集。</div>
+        <div class="card-excerpt">以為已經過了熱潮，沒想到還是排了約15分鐘才進場。
+對這活動沒抱啥期待，結果比想像中好玩！
+入場送代幣券，可餵食恐龍、騎恐龍，看完旁邊就是貨櫃市集。</div>
         <div class="chips">
           <a class="chip chip-map" href="https://maps.app.goo.gl/De3qvrzARQwcuz8W9" target="_blank">📍 地圖</a>
           <a class="chip chip-book" href="https://onelink.one/s/WGmPL" target="_blank">🎫 購票</a>
