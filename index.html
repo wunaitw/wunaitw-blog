@@ -19,32 +19,32 @@
 </script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Noto Sans TC', sans-serif; background: #eef7f3; color: #3a3a3a; }
+  body { font-family: 'Noto Sans TC', sans-serif; background: #fff; color: #1a1a1a; }
 
   .wrap { max-width: 1000px; margin: 0 auto; padding: 1.5rem 1rem; }
 
   /* Header */
-  .header { display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 1.5rem; margin-bottom: 1.5rem; background: linear-gradient(120deg, #daf0e8 0%, #e8f4f0 50%, #ddeef8 100%); border-radius: 20px; border: 1px solid #c4dfd4; }
+  .header { display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 1.5rem; margin-bottom: 0.75rem; background: #fff; border-radius: 14px; border: 1.5px solid #1e5f74; }
   .header-left { display: flex; align-items: center; gap: 14px; }
-  .avatar { width: 52px; height: 52px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; overflow: hidden; border: 2px solid #b8ddd0; }
+  .avatar { width: 52px; height: 52px; border-radius: 50%; background: #e8f4f7; display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; overflow: hidden; border: 2px solid #1e5f74; }
   .avatar img { width: 100%; height: 100%; object-fit: cover; }
-  .blog-name { font-size: 16px; font-weight: 700; color: #4a8c72; }
-  .blog-bio { font-size: 12px; color: #7ab09a; margin-top: 3px; }
+  .blog-name { font-size: 16px; font-weight: 700; color: #1e5f74; }
+  .blog-bio { font-size: 12px; color: #4a7a8a; margin-top: 3px; }
   .social-links { display: flex; gap: 8px; }
-  .social-btn { width: 34px; height: 34px; border-radius: 50%; border: 1px solid #b8ddd0; background: rgba(255,255,255,0.7); display: flex; align-items: center; justify-content: center; cursor: pointer; text-decoration: none; transition: background 0.2s; }
-  .social-btn:hover { background: rgba(255,255,255,0.95); }
+  .social-btn { width: 34px; height: 34px; border-radius: 50%; border: 1.5px solid #1e5f74; background: #fff; display: flex; align-items: center; justify-content: center; cursor: pointer; text-decoration: none; transition: background 0.2s; }
+  .social-btn:hover { background: #e8f4f7; }
   .social-btn svg { width: 16px; height: 16px; }
 
   /* Counter bar */
   .counter-bar { display: flex; align-items: center; justify-content: flex-end; gap: 16px; padding: 6px 4px; margin-bottom: 1rem; }
-  .counter-item { display: flex; align-items: center; gap: 5px; font-size: 12px; color: #8dc0aa; }
-  .counter-num { font-weight: 500; color: #4a8c72; }
-  .filters { display: flex; flex-direction: column; gap: 8px; margin-bottom: 1.5rem; background: rgba(255,255,255,0.75); border-radius: 14px; padding: 12px 14px; border: 1px solid #cce8dc; }
+  .counter-item { display: flex; align-items: center; gap: 5px; font-size: 12px; color: #4a7a8a; }
+  .counter-num { font-weight: 500; color: #1e5f74; }
+  .filters { display: flex; flex-direction: column; gap: 8px; margin-bottom: 1.5rem; background: #fff; border-radius: 12px; padding: 12px 14px; border: 1px solid #1e5f74; }
   .filter-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
-  .filter-label { font-size: 11px; color: #8dc0aa; min-width: 28px; font-weight: 500; }
-  .pill { padding: 5px 13px; border-radius: 20px; font-size: 12px; cursor: pointer; border: 1px solid #c4e0d4; background: rgba(255,255,255,0.8); color: #5a9a82; transition: all 0.15s; user-select: none; }
-  .pill:hover { border-color: #8cc8b0; color: #3a7a62; background: #fff; }
-  .pill.on { background: #7ec4a8; color: #fff; border-color: #7ec4a8; font-weight: 500; }
+  .filter-label { font-size: 11px; color: #4a7a8a; min-width: 28px; font-weight: 500; }
+  .pill { padding: 5px 13px; border-radius: 20px; font-size: 12px; cursor: pointer; border: 1px solid #b0ced6; background: #fff; color: #2a6a7a; transition: all 0.15s; user-select: none; }
+  .pill:hover { border-color: #1e5f74; color: #1e5f74; }
+  .pill.on { background: #1e5f74; color: #fff; border-color: #1e5f74; font-weight: 500; }
 
   /* Grid */
   .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
@@ -52,44 +52,44 @@
   @media (max-width: 420px) { .grid { grid-template-columns: 1fr; } }
 
   /* Card */
-  .card { background: rgba(255,255,255,0.88); border: 1px solid #d0e8de; border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s; }
-  .card:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(100,185,155,0.16); }
+  .card { background: #fff; border: 1.5px solid #1e5f74; border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s; }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(30,95,116,0.15); }
   .card.hidden { display: none; }
 
   /* Cover image */
-  .cover { position: relative; width: 100%; aspect-ratio: 4/3; overflow: hidden; background: #e8f4ee; }
+  .cover { position: relative; width: 100%; aspect-ratio: 4/3; overflow: hidden; background: #e8f4f7; }
   .cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .cat-badge { position: absolute; top: 9px; left: 9px; padding: 3px 9px; border-radius: 20px; font-size: 10px; font-weight: 500; z-index: 2; }
-  .region-badge { position: absolute; top: 9px; right: 9px; padding: 3px 9px; border-radius: 20px; font-size: 10px; background: rgba(255,255,255,0.88); color: #555; z-index: 2; }
+  .region-badge { position: absolute; top: 9px; right: 9px; padding: 3px 9px; border-radius: 20px; font-size: 10px; background: rgba(255,255,255,0.92); color: #1e5f74; border: 1px solid #b0ced6; z-index: 2; }
 
-  /* Category colors — 輕柔水彩感 */
-  .cat-育兒 { background: #fce8f5; color: #c06898; }
-  .cat-旅遊 { background: #dff2ea; color: #3a8a66; }
-  .cat-美食 { background: #fef4e4; color: #b07830; }
-  .cat-寵物 { background: #e4effe; color: #4872c0; }
-  .cat-運動 { background: #fefae4; color: #9a8030; }
-  .cat-旅遊票券 { background: #ece4fe; color: #7050c0; }
+  /* Category colors */
+  .cat-育兒 { background: #fce8f5; color: #b5348a; }
+  .cat-旅遊 { background: #e0f4e8; color: #1e6e3a; }
+  .cat-美食 { background: #fff3e0; color: #c06000; }
+  .cat-寵物 { background: #e3eeff; color: #2255cc; }
+  .cat-運動 { background: #fff8e0; color: #a07000; }
+  .cat-旅遊票券 { background: #eee3ff; color: #6633cc; }
 
   /* Card body */
   .body { padding: 11px 13px 13px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
-  .card-date { font-size: 10px; color: #a8c8bc; }
-  .card-title { font-size: 13px; font-weight: 700; color: #3a5a50; line-height: 1.45; }
-  .card-excerpt { font-size: 11px; color: #7a9a90; line-height: 1.75; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; white-space: pre-line; }
-  .chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: auto; padding-top: 8px; border-top: 1px solid #e4f2ec; }
+  .card-date { font-size: 10px; color: #7aaab8; }
+  .card-title { font-size: 13px; font-weight: 700; color: #1a1a1a; line-height: 1.45; }
+  .card-excerpt { font-size: 11px; color: #555; line-height: 1.75; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; white-space: pre-line; }
+  .chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: auto; padding-top: 8px; border-top: 1px solid #d0e8ee; }
   .chip { padding: 4px 9px; border-radius: 20px; font-size: 10px; font-weight: 500; border: 1px solid; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 3px; transition: opacity 0.15s; }
   .chip:hover { opacity: 0.72; }
-  .chip-map { background: #dff2ea; color: #3a8a66; border-color: #9ad4b8; }
-  .chip-book { background: #e4effe; color: #4872c0; border-color: #a0bce8; }
-  .chip-shop { background: #fef4e4; color: #b07830; border-color: #e8c488; }
-  .chip-ig { background: #fce8f5; color: #c06898; border-color: #e8a8d0; }
+  .chip-map { background: #e0f4e8; color: #1e6e3a; border-color: #7acca0; }
+  .chip-book { background: #e3eeff; color: #2255cc; border-color: #90b0f0; }
+  .chip-shop { background: #fff3e0; color: #c06000; border-color: #f0b060; }
+  .chip-ig { background: #fce8f5; color: #b5348a; border-color: #e8a8d0; }
   .chip-yt { background: #feeaea; color: #b83030; border-color: #f0a0a0; }
-  .chip-thread { background: #f0f0f0; color: #606060; border-color: #d0d0d0; }
-  .chip-fb { background: #e4effe; color: #3860c0; border-color: #a0bce8; }
-  .chip-ticket { background: #ece4fe; color: #7050c0; border-color: #c0a8e8; }
-  .chip-read { background: #7ec4a8; color: #fff; border-color: #7ec4a8; }
+  .chip-thread { background: #f0f0f0; color: #444; border-color: #ccc; }
+  .chip-fb { background: #e3eeff; color: #3860c0; border-color: #90b0f0; }
+  .chip-ticket { background: #eee3ff; color: #6633cc; border-color: #c0a8e8; }
+  .chip-read { background: #1e5f74; color: #fff; border-color: #1e5f74; }
 
   /* No results */
-  .no-results { grid-column: 1/-1; text-align: center; padding: 3rem 0; color: #b8d0c8; font-size: 14px; display: none; }
+  .no-results { grid-column: 1/-1; text-align: center; padding: 3rem 0; color: #aaa; font-size: 14px; display: none; }
 </style>
 </head>
 <body>
