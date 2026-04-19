@@ -56,17 +56,9 @@
   .card:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(100,185,155,0.16); }
   .card.hidden { display: none; }
 
-  /* Slider */
-  .slider { position: relative; width: 100%; aspect-ratio: 4/3; overflow: hidden; background: #f5f3f0; }
-  .slides { display: flex; height: 100%; transition: transform 0.3s ease; }
-  .slide { min-width: 100%; height: 100%; flex-shrink: 0; }
-  .slide img { width: 100%; height: 100%; object-fit: cover; display: block; background: #e8f4ee; }
-  .slide-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 26px; height: 26px; border-radius: 50%; background: rgba(255,255,255,0.9); border: none; cursor: pointer; font-size: 14px; color: #333; display: flex; align-items: center; justify-content: center; z-index: 2; }
-  .slide-btn.prev { left: 7px; }
-  .slide-btn.next { right: 7px; }
-  .dots { position: absolute; bottom: 7px; left: 50%; transform: translateX(-50%); display: flex; gap: 4px; z-index: 2; }
-  .dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,0.5); transition: background 0.2s; }
-  .dot.on { background: rgba(255,255,255,0.95); }
+  /* Cover image */
+  .cover { position: relative; width: 100%; aspect-ratio: 4/3; overflow: hidden; background: #e8f4ee; }
+  .cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .cat-badge { position: absolute; top: 9px; left: 9px; padding: 3px 9px; border-radius: 20px; font-size: 10px; font-weight: 500; z-index: 2; }
   .region-badge { position: absolute; top: 9px; right: 9px; padding: 3px 9px; border-radius: 20px; font-size: 10px; background: rgba(255,255,255,0.88); color: #555; z-index: 2; }
 
@@ -162,20 +154,10 @@
 
     <!-- 小人國 -->
     <div class="card" data-cat="育兒" data-region="桃園">
-      <div class="slider" data-idx="0">
+      <div class="cover">
         <span class="cat-badge cat-育兒">育兒</span>
         <span class="region-badge">桃園</span>
-        <div class="slides">
-          <div class="slide"><img src="https://drive.google.com/thumbnail?id=1FEiwlUQWWy-fy3k2imZ5SeE4h5YA23Hg&sz=w800" alt="小人國1" loading="lazy"></div>
-          <div class="slide"><img src="https://drive.google.com/thumbnail?id=1nGGBnxvKkF0RSnlub1XjQcVmUwt6TQSV&sz=w800" alt="小人國2" loading="lazy"></div>
-          <div class="slide"><img src="https://drive.google.com/thumbnail?id=1hoQhj7JyyqrAwFzXBmF0THxmB54cIfAQ&sz=w800" alt="小人國3" loading="lazy"></div>
-          <div class="slide"><img src="https://drive.google.com/thumbnail?id=1oUnR71qaVZQ-Zluvb5uwrLlWV73aGR2E&sz=w800" alt="小人國4" loading="lazy"></div>
-        </div>
-        <button class="slide-btn prev">‹</button>
-        <button class="slide-btn next">›</button>
-        <div class="dots">
-          <div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-        </div>
+        <img src="https://drive.google.com/thumbnail?id=1MHd3HYbBreAnUxQsXKjTPN8OZbcpfEEt&sz=w800" alt="小人國" loading="lazy">
       </div>
       <div class="body">
         <div class="card-date">2026 / 04 / 18</div>
@@ -194,25 +176,10 @@
 
     <!-- 恐龍大復活 -->
     <div class="card" data-cat="育兒" data-region="台北">
-      <div class="slider" data-idx="0">
+      <div class="cover">
         <span class="cat-badge cat-育兒">育兒</span>
         <span class="region-badge">台北</span>
-        <div class="slides">
-          <div class="slide"><img src="https://drive.google.com/thumbnail?id=1z_qq0cIsCw5QjK6faGXfivYjGD-wpbRB&sz=w800" alt="恐龍大復活1" loading="lazy"></div>
-          <div class="slide"><img src="https://drive.google.com/thumbnail?id=1IxypDHaSBDM95Na8QWA8bQdKdVVIlkjd&sz=w800" alt="恐龍大復活2" loading="lazy"></div>
-          <div class="slide"><img src="https://drive.google.com/thumbnail?id=1xODmPap5FT-yORDPGQqxI8mDltpvkBzG&sz=w800" alt="恐龍大復活3" loading="lazy"></div>
-          <div class="slide"><img src="https://drive.google.com/thumbnail?id=1cGoAyTS5CLmvdry7xZia6IZYlD1uBpKd&sz=w800" alt="恐龍大復活4" loading="lazy"></div>
-          <div class="slide"><img src="https://drive.google.com/thumbnail?id=1DBuD5UrZ41HReS-A8a8X76zX1wpU7sg_&sz=w800" alt="恐龍大復活5" loading="lazy"></div>
-          <div class="slide"><img src="https://drive.google.com/thumbnail?id=1Gutz5o4JcaYhpt4z5JNXiV7FXZvK6oUQ&sz=w800" alt="恐龍大復活6" loading="lazy"></div>
-          <div class="slide"><img src="https://drive.google.com/thumbnail?id=1OmJ8EWpRV2fmuNoRWHJTWge8hux8aRLx&sz=w800" alt="恐龍大復活7" loading="lazy"></div>
-          <div class="slide"><img src="https://drive.google.com/thumbnail?id=1I3vhgh_rZtSbGixsVw8Vuc9xo7UpYfG-&sz=w800" alt="恐龍大復活8" loading="lazy"></div>
-        </div>
-        <button class="slide-btn prev">‹</button>
-        <button class="slide-btn next">›</button>
-        <div class="dots">
-          <div class="dot on"></div><div class="dot"></div><div class="dot"></div>
-          <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-        </div>
+        <img src="https://drive.google.com/thumbnail?id=1MKtl4TPQMTiEL3_MyReE_jI1BSBijE3m&sz=w800" alt="恐龍大復活" loading="lazy">
       </div>
       <div class="body">
         <div class="card-date">2026 / 04 / 11</div>
@@ -232,23 +199,10 @@
 
     <!-- 甲蟲秘境 -->
     <div class="card" data-cat="育兒" data-region="台北">
-      <div class="slider" data-idx="0">
+      <div class="cover">
         <span class="cat-badge cat-育兒">育兒</span>
         <span class="region-badge">台北</span>
-        <div class="slides">
-          <div class="slide"><img src="https://drive.google.com/thumbnail?id=1vQtpvELSKyWuVrpHX5f6yaA29PNyB1c1&sz=w800" alt="甲蟲秘境1" loading="lazy"></div>
-          <div class="slide"><img src="https://drive.google.com/thumbnail?id=1QZoe6nJwJdqZuqIHhcJTut-ft_7N1IvA&sz=w800" alt="甲蟲秘境2" loading="lazy"></div>
-          <div class="slide"><img src="https://drive.google.com/thumbnail?id=1v0e-mTed9IJe6zCGmqCoc0ylNfTe1Hei&sz=w800" alt="甲蟲秘境3" loading="lazy"></div>
-          <div class="slide"><img src="https://drive.google.com/thumbnail?id=1gTK0D1viftGNY70CDhNY2Li62FaVznzD&sz=w800" alt="甲蟲秘境4" loading="lazy"></div>
-          <div class="slide"><img src="https://drive.google.com/thumbnail?id=1z0qJESVOOMpC2lC8ELnCvw0UZLa6HXnq&sz=w800" alt="甲蟲秘境5" loading="lazy"></div>
-          <div class="slide"><img src="https://drive.google.com/thumbnail?id=1qTew-kWL3DJw1sqE1frID5fM1n8L6fiF&sz=w800" alt="甲蟲秘境6" loading="lazy"></div>
-        </div>
-        <button class="slide-btn prev">‹</button>
-        <button class="slide-btn next">›</button>
-        <div class="dots">
-          <div class="dot on"></div><div class="dot"></div><div class="dot"></div>
-          <div class="dot"></div><div class="dot"></div><div class="dot"></div>
-        </div>
+        <img src="https://drive.google.com/thumbnail?id=1-7ZOf4optSr_bbf8I0ND1ZuJHBYGkVVu&sz=w800" alt="甲蟲秘境" loading="lazy">
       </div>
       <div class="body">
         <div class="card-date">2026 / 04 / 04</div>
@@ -267,35 +221,10 @@
 
     <!-- USJ 大阪環球影城 -->
     <div class="card" data-cat="旅遊" data-region="大阪">
-      <div class="slider" data-idx="0">
+      <div class="cover">
         <span class="cat-badge cat-旅遊">旅遊</span>
         <span class="region-badge">大阪</span>
-        <div class="slides">
-          <div class="slide"><img src="https://drive.google.com/thumbnail?id=1OmJ91K-GuFhAJCvrOX6sgbpfs1sH7jlK&sz=w800" alt="USJ1" loading="lazy"></div>
-          <div class="slide"><img src="https://drive.google.com/thumbnail?id=1ZDGPuDoYky97LeCsQHmJ-qnhd3Ss_m89&sz=w800" alt="USJ2" loading="lazy"></div>
-          <div class="slide"><img src="https://drive.google.com/thumbnail?id=1qmcMqhfo1qMjDJoDYsBn_NRKTnfkDKY4&sz=w800" alt="USJ3" loading="lazy"></div>
-          <div class="slide"><img src="https://drive.google.com/thumbnail?id=1OkFtTyO1fwMfEaYgQaSdT8I44jLowYJI&sz=w800" alt="USJ4" loading="lazy"></div>
-          <div class="slide"><img src="https://drive.google.com/thumbnail?id=1wacHOBNOi6Rs8g3FVzB6KHw1k7jMecvn&sz=w800" alt="USJ5" loading="lazy"></div>
-          <div class="slide"><img src="https://drive.google.com/thumbnail?id=1zFgTwmZmLjGwEWjw9CGJRblrsaVkKDBK&sz=w800" alt="USJ6" loading="lazy"></div>
-          <div class="slide"><img src="https://drive.google.com/thumbnail?id=1DiE8s4vR-BKE7mhXmHQgFMLmHMnVYBJS&sz=w800" alt="USJ7" loading="lazy"></div>
-          <div class="slide"><img src="https://drive.google.com/thumbnail?id=1g1mx1HENY4QDWqL4LAKkwV4YdmvBMulc&sz=w800" alt="USJ8" loading="lazy"></div>
-          <div class="slide"><img src="https://drive.google.com/thumbnail?id=1ZsZmF0702L90TUuAAl2xEn0ojJSSNEIC&sz=w800" alt="USJ9" loading="lazy"></div>
-          <div class="slide"><img src="https://drive.google.com/thumbnail?id=1cfXip9fdPBY7ojxxqPkPxzLzjSSFN88A&sz=w800" alt="USJ10" loading="lazy"></div>
-          <div class="slide"><img src="https://drive.google.com/thumbnail?id=13UDdIwQqRgNOCyB4RLVFBE4mcS-IeCIv&sz=w800" alt="USJ11" loading="lazy"></div>
-          <div class="slide"><img src="https://drive.google.com/thumbnail?id=1vNcqJzoC_pUUoXgNUUizaccjqUqgdyGb&sz=w800" alt="USJ12" loading="lazy"></div>
-          <div class="slide"><img src="https://drive.google.com/thumbnail?id=1A30KZup8KD7Lug--5pSmDbvJ7E8pY7II&sz=w800" alt="USJ13" loading="lazy"></div>
-          <div class="slide"><img src="https://drive.google.com/thumbnail?id=1eQTnG8BPgen6Jsd7c7ErtnEIC-jmCL5E&sz=w800" alt="USJ14" loading="lazy"></div>
-          <div class="slide"><img src="https://drive.google.com/thumbnail?id=1-avjYulQ7J5ZNmyjVa7Ls8mZrfHSMMRb&sz=w800" alt="USJ15" loading="lazy"></div>
-        </div>
-        <button class="slide-btn prev">‹</button>
-        <button class="slide-btn next">›</button>
-        <div class="dots">
-          <div class="dot on"></div><div class="dot"></div><div class="dot"></div>
-          <div class="dot"></div><div class="dot"></div><div class="dot"></div>
-          <div class="dot"></div><div class="dot"></div><div class="dot"></div>
-          <div class="dot"></div><div class="dot"></div><div class="dot"></div>
-          <div class="dot"></div><div class="dot"></div><div class="dot"></div>
-        </div>
+        <img src="https://drive.google.com/thumbnail?id=1d6B2dQzKPRMORcJSxLHYzqNNzw7IhRc5&sz=w800" alt="USJ" loading="lazy">
       </div>
       <div class="body">
         <div class="card-date">2025 / 12 / 16</div>
@@ -317,21 +246,6 @@
 </div>
 
 <script>
-  // Slider
-  document.querySelectorAll('.slider').forEach(slider => {
-    let idx = 0;
-    const slides = slider.querySelector('.slides');
-    const dots = slider.querySelectorAll('.dot');
-    const total = slider.querySelectorAll('.slide').length;
-    function go(n) {
-      idx = (n + total) % total;
-      slides.style.transform = `translateX(-${idx * 100}%)`;
-      dots.forEach((d, i) => d.classList.toggle('on', i === idx));
-    }
-    slider.querySelector('.prev').addEventListener('click', e => { e.stopPropagation(); go(idx - 1); });
-    slider.querySelector('.next').addEventListener('click', e => { e.stopPropagation(); go(idx + 1); });
-  });
-
   // Filters
   let activeCat = 'all', activeRegion = 'all';
   function filterCards() {
