@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COZU LAB 客製玻璃杯剪貼實驗室｜軟糖媽咪Ivy生活筆記</title>
+<link rel="apple-touch-icon" href="/icon-192.png">
+<link rel="icon" type="image/png" href="/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<!-- 不蒜子計數器 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YZ5SNT3L73"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YZ5SNT3L73');
+</script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Noto Sans TC', sans-serif; background: #fff; color: #1a1a1a; }
+  .wrap { max-width: 680px; margin: 0 auto; padding: 1.5rem 1rem 4rem; }
+  .back { display: inline-flex; align-items: center; gap: 5px; font-size: 13px; color: #1e5f74; text-decoration: none; margin-bottom: 1.5rem; transition: opacity 0.2s; }
+  .back:hover { opacity: 0.7; }
+  .post-header { margin-bottom: 1.5rem; }
+  .badges { display: flex; gap: 6px; margin-bottom: 10px; flex-wrap: wrap; }
+  .badge { padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 500; }
+  .badge-cat { background: #fce8f5; color: #b5348a; }
+  .badge-region { background: #f0f0f0; color: #444; }
+  .post-title { font-size: 24px; font-weight: 700; line-height: 1.4; margin-bottom: 8px; color: #1a1a1a; }
+  .post-date { font-size: 12px; color: #7aaab8; }
+
+  /* Gallery */
+  .gallery { margin-bottom: 1.75rem; }
+  .main-photo { width: 100%; aspect-ratio: 4/3; border-radius: 16px; overflow: hidden; background: #e8f4f7; position: relative; }
+  .main-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .slide-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,0.92); border: none; cursor: pointer; font-size: 16px; color: #1e5f74; display: flex; align-items: center; justify-content: center; z-index: 2; }
+  .slide-btn.prev { left: 10px; }
+  .slide-btn.next { right: 10px; }
+  .dots { display: flex; gap: 5px; justify-content: center; margin-top: 10px; flex-wrap: wrap; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: #b0ced6; transition: background 0.2s; cursor: pointer; }
+  .dot.on { background: #1e5f74; }
+  .thumbs { display: flex; gap: 6px; margin-top: 8px; overflow-x: auto; padding-bottom: 4px; }
+  .thumb { width: 60px; height: 60px; border-radius: 10px; overflow: hidden; flex-shrink: 0; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
+  .thumb.on { border-color: #1e5f74; }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* Content */
+  .post-content { font-size: 15px; line-height: 1.9; color: #333; margin-bottom: 2rem; }
+  .post-content p { margin-bottom: 1rem; }
+  .post-content h2 { font-size: 17px; font-weight: 700; margin: 1.75rem 0 0.75rem; color: #1e5f74; }
+  .steps { display: flex; flex-direction: column; gap: 12px; margin: 1.25rem 0; }
+  .step { display: flex; gap: 12px; align-items: flex-start; }
+  .step-num { width: 28px; height: 28px; border-radius: 50%; background: #1e5f74; color: #fff; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+  .step-content { font-size: 14px; line-height: 1.8; color: #333; flex: 1; }
+  .step-content strong { color: #1e5f74; }
+  .note { font-size: 13px; color: #555; background: #f8f8f8; border-radius: 12px; padding: 0.9rem 1.1rem; margin: 1.25rem 0; line-height: 1.8; border: 1px solid #e0e0e0; }
+
+  /* Links */
+  .link-section { border-top: 1px solid #d0e8ee; padding-top: 1.5rem; }
+  .link-section h3 { font-size: 13px; font-weight: 500; color: #4a7a8a; margin-bottom: 12px; }
+  .link-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+  .link-btn { display: inline-flex; align-items: center; gap: 6px; padding: 9px 16px; border-radius: 25px; font-size: 13px; font-weight: 500; border: 1px solid; cursor: pointer; text-decoration: none; transition: opacity 0.15s; }
+  .link-btn:hover { opacity: 0.75; }
+  .btn-map { background: #e0f4e8; color: #1e6e3a; border-color: #7acca0; }
+  .btn-book { background: #e3eeff; color: #2255cc; border-color: #90b0f0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="back" href="../index.html">← 回首頁</a>
+
+  <div class="post-header">
+    <div class="badges">
+      <span class="badge badge-cat">育兒</span>
+      <span class="badge badge-region">台北</span>
+    </div>
+    <h1 class="post-title">COZU LAB｜客製玻璃杯剪貼實驗室</h1>
+    <div class="post-date">2026 / 04 / 25</div>
+  </div>
+
+  <div class="gallery">
+    <div class="main-photo">
+      <img id="main-img" src="https://drive.google.com/thumbnail?id=1VFMM4JszTrc0_nCI-kFG8vZPt-z33lur&sz=w1000" alt="COZU LAB 1">
+      <button class="slide-btn prev" id="prev-btn">‹</button>
+      <button class="slide-btn next" id="next-btn">›</button>
+    </div>
+    <div class="dots" id="dots">
+      <div class="dot on"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <div class="thumbs" id="thumbs">
+      <div class="thumb on"><img src="https://drive.google.com/thumbnail?id=1VFMM4JszTrc0_nCI-kFG8vZPt-z33lur&sz=w200" alt="1"></div>
+      <div class="thumb"><img src="https://drive.google.com/thumbnail?id=1n8LdpsCN5git8h81iaY74rI07yuOsK3Z&sz=w200" alt="2"></div>
+      <div class="thumb"><img src="https://drive.google.com/thumbnail?id=102rY5hxlej_hWYMr3IfiwHBz2iI2uSHh&sz=w200" alt="3"></div>
+      <div class="thumb"><img src="https://drive.google.com/thumbnail?id=1dl9RH3YfRjBkQUz_Dv2QEjWLC2bheGF5&sz=w200" alt="4"></div>
+      <div class="thumb"><img src="https://drive.google.com/thumbnail?id=1XRgwgydve0rfOeBgJWwhhbfHPPvZmUD6&sz=w200" alt="5"></div>
+      <div class="thumb"><img src="https://drive.google.com/thumbnail?id=18jkoKnI_HoJkS9bomb6b-fDxFp5TnpqP&sz=w200" alt="6"></div>
+      <div class="thumb"><img src="https://drive.google.com/thumbnail?id=1h_hJPbEm-rKotfrrQASsCvd6CRltSAcq&sz=w200" alt="7"></div>
+      <div class="thumb"><img src="https://drive.google.com/thumbnail?id=1dehH8NNwfbSaXIMV84WfWpev4COi-6uG&sz=w200" alt="8"></div>
+      <div class="thumb"><img src="https://drive.google.com/thumbnail?id=1QBEEprHbT-Pg7p9Y9OGhnANUGHPmWDTI&sz=w200" alt="9"></div>
+      <div class="thumb"><img src="https://drive.google.com/thumbnail?id=1j-btvBZfHQv2OJX8Dq5W_MPDWxDA38xE&sz=w200" alt="10"></div>
+      <div class="thumb"><img src="https://drive.google.com/thumbnail?id=1-7flSpDwk8n_V8HenZfkIcvL5UFfzk44&sz=w200" alt="11"></div>
+      <div class="thumb"><img src="https://drive.google.com/thumbnail?id=168osSHQCUFCiEXWWMbyf8UtjbLMGbzJR&sz=w200" alt="12"></div>
+      <div class="thumb"><img src="https://drive.google.com/thumbnail?id=1z6HOne_U-K8ZnSvzEdM2ALT7JjrHjxNf&sz=w200" alt="13"></div>
+    </div>
+  </div>
+
+  <div class="post-content">
+    <p>前幾週聽到朋友帶小朋友去 COZU LAB 手做自己的杯子，聽起來就很好玩！趁著 4 月下雨的天氣，很適合安排室內行程，就來了 🎨</p>
+
+    <p>採預約制，所以一到現場大約只有 4 組人，每一組都有足夠的空間，不會覺得擁擠。</p>
+
+    <h2>體驗流程</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content"><strong>挑選杯子</strong> — 先去杯子區挑選喜歡的款式。一心想吃冰淇淋的雞軟骨挑了熱門的聖代杯，雞毛則挑選了鋁罐杯。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content"><strong>設計圖案</strong> — 老師給大家一張 A4 大小的紙，把想設計的樣式「擺」在紙上。可以用旁邊的貼紙、打洞機、剪刀設計，也可以像雞毛一樣用疊圖的方式疊出自己想要的圖案。雞軟骨想做動物園主題，挑了各種動物貼紙，還用打洞機打出超可愛的動物圖案！</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content"><strong>貼上杯子</strong> — 把每張貼紙泡水，讓背膠跟圖案稍微分離後，用夾子把貼紙放到杯子上，再把後面的紙抽出，擦乾水分即完成。這個階段花最多時間，但超好玩，不小心就兩個小時過去了！</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content"><strong>交給老師窯燒</strong> — 掃描官方 QR code，將作品照片回傳留念。圖案會進入高溫窯燒處理，完整附著在杯子上，約 2 週寄到指定地址。</div>
+      </div>
+    </div>
+
+    <div class="note">
+      💡 貼心小提醒：雞軟骨中途有點小失控，一直想拿雞毛手上的貼紙，老師馬上拿出紙卡讓他專心畫畫，完全不影響大人的進度，老師很厲害！
+    </div>
+
+    <p>一開始雞軟骨還很認真跟我一起貼，結果看到雞毛做的哈尼圖案，他轉移陣營改去雞毛那邊。也因為他轉移陣地，我決定把杯子走向自己的風格，哈哈 😄</p>
+
+    <p>如果週末還不知道帶小朋友去哪，可以預約 COZU LAB 來體驗客製自己的玻璃杯，超推薦！</p>
+  </div>
+
+  <div class="link-section">
+    <h3>相關連結</h3>
+    <div class="link-grid">
+      <a class="link-btn btn-map" href="https://maps.app.goo.gl/fskanbVzUV4CgcEx7" target="_blank">📍 Google Maps</a>
+      <a class="link-btn btn-book" href="https://www.cozulab.com" target="_blank">🌐 官方網站預約</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const imgs = [
+    'https://drive.google.com/thumbnail?id=1VFMM4JszTrc0_nCI-kFG8vZPt-z33lur&sz=w1000',
+    'https://drive.google.com/thumbnail?id=1n8LdpsCN5git8h81iaY74rI07yuOsK3Z&sz=w1000',
+    'https://drive.google.com/thumbnail?id=102rY5hxlej_hWYMr3IfiwHBz2iI2uSHh&sz=w1000',
+    'https://drive.google.com/thumbnail?id=1dl9RH3YfRjBkQUz_Dv2QEjWLC2bheGF5&sz=w1000',
+    'https://drive.google.com/thumbnail?id=1XRgwgydve0rfOeBgJWwhhbfHPPvZmUD6&sz=w1000',
+    'https://drive.google.com/thumbnail?id=18jkoKnI_HoJkS9bomb6b-fDxFp5TnpqP&sz=w1000',
+    'https://drive.google.com/thumbnail?id=1h_hJPbEm-rKotfrrQASsCvd6CRltSAcq&sz=w1000',
+    'https://drive.google.com/thumbnail?id=1dehH8NNwfbSaXIMV84WfWpev4COi-6uG&sz=w1000',
+    'https://drive.google.com/thumbnail?id=1QBEEprHbT-Pg7p9Y9OGhnANUGHPmWDTI&sz=w1000',
+    'https://drive.google.com/thumbnail?id=1j-btvBZfHQv2OJX8Dq5W_MPDWxDA38xE&sz=w1000',
+    'https://drive.google.com/thumbnail?id=1-7flSpDwk8n_V8HenZfkIcvL5UFfzk44&sz=w1000',
+    'https://drive.google.com/thumbnail?id=168osSHQCUFCiEXWWMbyf8UtjbLMGbzJR&sz=w1000',
+    'https://drive.google.com/thumbnail?id=1z6HOne_U-K8ZnSvzEdM2ALT7JjrHjxNf&sz=w1000'
+  ];
+  let cur = 0;
+  const mainImg = document.getElementById('main-img');
+  const dots = document.querySelectorAll('#dots .dot');
+  const thumbs = document.querySelectorAll('#thumbs .thumb');
+  function go(n) {
+    cur = (n + imgs.length) % imgs.length;
+    mainImg.src = imgs[cur];
+    dots.forEach((d, i) => d.classList.toggle('on', i === cur));
+    thumbs.forEach((t, i) => t.classList.toggle('on', i === cur));
+    thumbs[cur].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+  }
+  document.getElementById('prev-btn').addEventListener('click', () => go(cur - 1));
+  document.getElementById('next-btn').addEventListener('click', () => go(cur + 1));
+  dots.forEach((d, i) => d.addEventListener('click', () => go(i)));
+  thumbs.forEach((t, i) => t.addEventListener('click', () => go(i)));
+</script>
+</body>
+</html>
