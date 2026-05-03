@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>老貝殼親子假期｜軟糖媽咪Ivy生活筆記</title>
+<link rel="apple-touch-icon" href="/icon-192.png">
+<link rel="icon" type="image/png" href="/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<!-- 不蒜子計數器 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YZ5SNT3L73"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YZ5SNT3L73');
+</script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Noto Sans TC', sans-serif; background: #fff; color: #1a1a1a; }
+  .wrap { max-width: 680px; margin: 0 auto; padding: 1.5rem 1rem 4rem; }
+  .back { display: inline-flex; align-items: center; gap: 5px; font-size: 13px; color: #1e5f74; text-decoration: none; margin-bottom: 1.5rem; transition: opacity 0.2s; }
+  .back:hover { opacity: 0.7; }
+  .post-header { margin-bottom: 1.5rem; }
+  .badges { display: flex; gap: 6px; margin-bottom: 10px; flex-wrap: wrap; }
+  .badge { padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 500; }
+  .badge-cat { background: #fce8f5; color: #b5348a; }
+  .badge-cat2 { background: #e0f4e8; color: #1e6e3a; }
+  .badge-cat3 { background: #e3eeff; color: #2255cc; }
+  .badge-region { background: #f0f0f0; color: #444; }
+  .post-title { font-size: 24px; font-weight: 700; line-height: 1.4; margin-bottom: 8px; color: #1a1a1a; }
+  .post-date { font-size: 12px; color: #7aaab8; }
+
+  /* Gallery */
+  .gallery { margin-bottom: 1.75rem; }
+  .main-photo { width: 100%; aspect-ratio: 4/3; border-radius: 16px; overflow: hidden; background: #e8f4f7; position: relative; }
+  .main-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .slide-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,0.92); border: none; cursor: pointer; font-size: 16px; color: #1e5f74; display: flex; align-items: center; justify-content: center; z-index: 2; }
+  .slide-btn.prev { left: 10px; }
+  .slide-btn.next { right: 10px; }
+  .dots { display: flex; gap: 5px; justify-content: center; margin-top: 10px; flex-wrap: wrap; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: #b0ced6; transition: background 0.2s; cursor: pointer; }
+  .dot.on { background: #1e5f74; }
+  .thumbs { display: flex; gap: 6px; margin-top: 8px; overflow-x: auto; padding-bottom: 4px; }
+  .thumb { width: 60px; height: 60px; border-radius: 10px; overflow: hidden; flex-shrink: 0; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
+  .thumb.on { border-color: #1e5f74; }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* Content */
+  .post-content { font-size: 15px; line-height: 1.9; color: #333; margin-bottom: 2rem; }
+  .post-content p { margin-bottom: 1rem; }
+  .post-content h2 { font-size: 17px; font-weight: 700; margin: 1.75rem 0 0.75rem; color: #1e5f74; }
+  .price-box { background: #f5fbfd; border: 1.5px solid #1e5f74; border-radius: 12px; padding: 1rem 1.25rem; margin: 1.25rem 0; }
+  .price-box p { margin: 0; font-size: 14px; line-height: 1.85; color: #333; }
+  .price-box p + p { margin-top: 0.4rem; }
+  .activity-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 1.25rem 0; }
+  @media (max-width: 480px) { .activity-grid { grid-template-columns: 1fr; } }
+  .activity-item { background: #f8f8f8; border-radius: 12px; padding: 12px 14px; border: 1px solid #e8e8e8; }
+  .activity-title { font-size: 13px; font-weight: 700; color: #1e5f74; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+  .activity-desc { font-size: 12px; color: #555; line-height: 1.7; }
+  .note { font-size: 13px; color: #555; background: #f8f8f8; border-radius: 12px; padding: 0.9rem 1.1rem; margin: 1.25rem 0; line-height: 1.8; border: 1px solid #e0e0e0; }
+
+  /* Links */
+  .link-section { border-top: 1px solid #d0e8ee; padding-top: 1.5rem; }
+  .link-section h3 { font-size: 13px; font-weight: 500; color: #4a7a8a; margin-bottom: 12px; }
+  .link-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+  .link-btn { display: inline-flex; align-items: center; gap: 6px; padding: 9px 16px; border-radius: 25px; font-size: 13px; font-weight: 500; border: 1px solid; cursor: pointer; text-decoration: none; transition: opacity 0.15s; }
+  .link-btn:hover { opacity: 0.75; }
+  .btn-map { background: #e0f4e8; color: #1e6e3a; border-color: #7acca0; }
+  .btn-ig { background: #fce8f5; color: #b5348a; border-color: #e8a8d0; }
+  .btn-thread { background: #f0f0f0; color: #444; border-color: #ccc; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="back" href="../index.html">← 回首頁</a>
+
+  <div class="post-header">
+    <div class="badges">
+      <span class="badge badge-cat">育兒</span>
+      <span class="badge badge-cat2">旅遊</span>
+      <span class="badge badge-cat3">寵物</span>
+      <span class="badge badge-region">桃園</span>
+    </div>
+    <h1 class="post-title">老貝殼親子假期</h1>
+    <div class="post-date">2026 / 05 / 01</div>
+  </div>
+
+  <div class="gallery">
+    <div class="main-photo">
+      <img id="main-img" src="https://drive.google.com/thumbnail?id=1ZALI_DQ4pxcZzzTFLA9Nb_EyedLyldhg&sz=w1000" alt="老貝殼親子假期1">
+      <button class="slide-btn prev" id="prev-btn">‹</button>
+      <button class="slide-btn next" id="next-btn">›</button>
+    </div>
+    <div class="dots" id="dots">
+      <div class="dot on"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div>
+    </div>
+    <div class="thumbs" id="thumbs">
+      <div class="thumb on"><img src="https://drive.google.com/thumbnail?id=1ZALI_DQ4pxcZzzTFLA9Nb_EyedLyldhg&sz=w200" alt="1"></div>
+      <div class="thumb"><img src="https://drive.google.com/thumbnail?id=1gxrRYyWcmGBh7x5xzvyqTdgI32AicLQX&sz=w200" alt="2"></div>
+      <div class="thumb"><img src="https://drive.google.com/thumbnail?id=1sQqO8QYL8D-KgzjddSM6D52KYwFpOdMB&sz=w200" alt="3"></div>
+      <div class="thumb"><img src="https://drive.google.com/thumbnail?id=1zo50nsMCgn-_g8ftyxDy09hjdpTkFRAs&sz=w200" alt="4"></div>
+      <div class="thumb"><img src="https://drive.google.com/thumbnail?id=1wIDc0OApn5LbS9zee9Zgcf5Q6_u0TQiR&sz=w200" alt="5"></div>
+      <div class="thumb"><img src="https://drive.google.com/thumbnail?id=1_ZbRDodRGHCuwo55u6rK5Z7A0-Bywgu4&sz=w200" alt="6"></div>
+      <div class="thumb"><img src="https://drive.google.com/thumbnail?id=1QXkPRzzc2bKomBGpS1pIIrjh7v0o8pQE&sz=w200" alt="7"></div>
+      <div class="thumb"><img src="https://drive.google.com/thumbnail?id=1y4l4y38qcmJW1lnZky9pOklUbAH1k2rr&sz=w200" alt="8"></div>
+      <div class="thumb"><img src="https://drive.google.com/thumbnail?id=11X17fSISQcLscG5xr6SAx5dErhuG777C&sz=w200" alt="9"></div>
+      <div class="thumb"><img src="https://drive.google.com/thumbnail?id=1wIDc0OApn5LbS9zee9Zgcf5Q6_u0TQiR&sz=w200" alt="10"></div>
+      <div class="thumb"><img src="https://drive.google.com/thumbnail?id=1e-RuniL-o6YS2DZScWuY3n8Y1MiPufdC&sz=w200" alt="11"></div>
+    </div>
+  </div>
+
+  <div class="post-content">
+    <p>如果你跟我一樣，家裡有隻寵物，但又想帶小孩去放電，可以來老貝殼親子假期玩玩！</p>
+
+    <p>五一連假因為要帶雞軟骨跟哈尼去苗栗玩，所以想找一個能帶寵物又能讓雞軟骨放電的地方，就找到了老貝殼親子假期 🐾</p>
+
+    <h2>票價</h2>
+    <div class="price-box">
+      <p>🎟️ 門票：<strong>200 元</strong></p>
+      <p>🎟️ 套票：<strong>350 元</strong>（包含 DIY 餅乾、手工藝品、打棒球、射箭、高爾夫、騎小馬、漆彈靶心射擊）</p>
+      <p>🎂 當月壽星免費！</p>
+    </div>
+
+    <h2>套票活動介紹</h2>
+    <div class="activity-grid">
+      <div class="activity-item">
+        <div class="activity-title">🍪 DIY 餅乾</div>
+        <div class="activity-desc">除午休外幾乎每半小時一場，給一團麵團跟三個模具，自己壓好形狀後等待進烤箱。</div>
+      </div>
+      <div class="activity-item">
+        <div class="activity-title">🏹 射箭</div>
+        <div class="activity-desc">草人射箭，一排稻草人排排站，拿5支箭自由選目標射擊。看起來簡單，結果連箭都架不起來 😂</div>
+      </div>
+      <div class="activity-item">
+        <div class="activity-title">🎯 漆彈靶心射擊</div>
+        <div class="activity-desc">入園時就會給 7 顆漆彈，就在射箭旁邊，可以接著一起玩！七下很快就按完了，哈哈。</div>
+      </div>
+      <div class="activity-item">
+        <div class="activity-title">🐴 騎小馬</div>
+        <div class="activity-desc">繞兩圈，有人扶著小馬，爸媽在旁邊拍照觀看。雞軟骨有點害怕，所以我們在外面觀賞。</div>
+      </div>
+      <div class="activity-item">
+        <div class="activity-title">⛳ 高爾夫球</div>
+        <div class="activity-desc">共 20 球，約 30 支球竿可依身高挑選。雞軟骨最愛這關，唯一不讓我們插手的項目！</div>
+      </div>
+      <div class="activity-item">
+        <div class="activity-title">⚾ 棒球打擊</div>
+        <div class="activity-desc">用棒球丟九宮格方塊，約有九個靶，幾乎不用排隊，可以輕鬆玩。</div>
+      </div>
+    </div>
+
+    <div class="note">
+      🍽️ 裡面有餐廳可以用餐，口味比較不合我們家的口味，建議先吃飽再來，或自備點心。
+    </div>
+
+    <p>如果家裡有毛小孩跟小朋友，其實蠻推薦這邊的，可以一次幫兩個放電！從桃園上車後，三個直接從桃園睡到苗栗，也算都有運動到了 😄</p>
+  </div>
+
+  <div class="link-section">
+    <h3>相關連結</h3>
+    <div class="link-grid">
+      <a class="link-btn btn-map" href="https://maps.app.goo.gl/8pRFuvK43nd8uek99" target="_blank">📍 Google Maps</a>
+      <a class="link-btn btn-ig" href="https://www.instagram.com/reel/DX3p0QGSQHC/" target="_blank">📷 IG 原文</a>
+      <a class="link-btn btn-thread" href="https://www.threads.com/@ivyhuanglichia/post/DX3raaRElCP" target="_blank">🧵 Threads 原文</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const imgs = [
+    'https://drive.google.com/thumbnail?id=1ZALI_DQ4pxcZzzTFLA9Nb_EyedLyldhg&sz=w1000',
+    'https://drive.google.com/thumbnail?id=1gxrRYyWcmGBh7x5xzvyqTdgI32AicLQX&sz=w1000',
+    'https://drive.google.com/thumbnail?id=1sQqO8QYL8D-KgzjddSM6D52KYwFpOdMB&sz=w1000',
+    'https://drive.google.com/thumbnail?id=1zo50nsMCgn-_g8ftyxDy09hjdpTkFRAs&sz=w1000',
+    'https://drive.google.com/thumbnail?id=1wIDc0OApn5LbS9zee9Zgcf5Q6_u0TQiR&sz=w1000',
+    'https://drive.google.com/thumbnail?id=1_ZbRDodRGHCuwo55u6rK5Z7A0-Bywgu4&sz=w1000',
+    'https://drive.google.com/thumbnail?id=1QXkPRzzc2bKomBGpS1pIIrjh7v0o8pQE&sz=w1000',
+    'https://drive.google.com/thumbnail?id=1y4l4y38qcmJW1lnZky9pOklUbAH1k2rr&sz=w1000',
+    'https://drive.google.com/thumbnail?id=11X17fSISQcLscG5xr6SAx5dErhuG777C&sz=w1000',
+    'https://drive.google.com/thumbnail?id=1wIDc0OApn5LbS9zee9Zgcf5Q6_u0TQiR&sz=w1000',
+    'https://drive.google.com/thumbnail?id=1e-RuniL-o6YS2DZScWuY3n8Y1MiPufdC&sz=w1000'
+  ];
+  let cur = 0;
+  const mainImg = document.getElementById('main-img');
+  const dots = document.querySelectorAll('#dots .dot');
+  const thumbs = document.querySelectorAll('#thumbs .thumb');
+  function go(n) {
+    cur = (n + imgs.length) % imgs.length;
+    mainImg.src = imgs[cur];
+    dots.forEach((d, i) => d.classList.toggle('on', i === cur));
+    thumbs.forEach((t, i) => t.classList.toggle('on', i === cur));
+    thumbs[cur].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+  }
+  document.getElementById('prev-btn').addEventListener('click', () => go(cur - 1));
+  document.getElementById('next-btn').addEventListener('click', () => go(cur + 1));
+  dots.forEach((d, i) => d.addEventListener('click', () => go(i)));
+  thumbs.forEach((t, i) => t.addEventListener('click', () => go(i)));
+</script>
+</body>
+</html>
