@@ -8,7 +8,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="apple-touch-icon" href="/icon-192.png">
 <link rel="icon" type="image/png" href="/icon-192.png">
-<!-- 不蒜子計數器 -->
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-YZ5SNT3L73"></script>
 <script>
@@ -18,84 +17,64 @@
   gtag('config', 'G-YZ5SNT3L73');
 </script>
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Noto Sans TC', sans-serif; background: #fff; color: #1a1a1a; }
-
-  .wrap { max-width: 1000px; margin: 0 auto; padding: 1.5rem 1rem; }
-
-  /* Header */
-  .header { display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 1.5rem; margin-bottom: 0.75rem; background: #fff; border-radius: 14px; border: 1.5px solid #1e5f74; }
-  .header-left { display: flex; align-items: center; gap: 14px; }
-  .avatar { width: 52px; height: 52px; border-radius: 50%; background: #e8f4f7; display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; overflow: hidden; border: 2px solid #1e5f74; }
-  .avatar img { width: 100%; height: 100%; object-fit: cover; }
-  .blog-name { font-size: 16px; font-weight: 700; color: #1e5f74; }
-  .blog-bio { font-size: 12px; color: #4a7a8a; margin-top: 3px; }
-  .social-links { display: flex; gap: 8px; }
-  .social-btn { width: 34px; height: 34px; border-radius: 50%; border: 1.5px solid #1e5f74; background: #fff; display: flex; align-items: center; justify-content: center; cursor: pointer; text-decoration: none; transition: background 0.2s; }
-  .social-btn:hover { background: #e8f4f7; }
-  .social-btn svg { width: 16px; height: 16px; }
-
-  /* Counter bar */
-  .counter-bar { display: flex; align-items: center; justify-content: flex-end; gap: 16px; padding: 6px 4px; margin-bottom: 1rem; }
-  .counter-item { display: flex; align-items: center; gap: 5px; font-size: 12px; color: #4a7a8a; }
-  .counter-num { font-weight: 500; color: #1e5f74; }
-  .filters { display: flex; flex-direction: column; gap: 8px; margin-bottom: 1.5rem; background: #fff; border-radius: 12px; padding: 12px 14px; border: 1px solid #1e5f74; }
-  .filter-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
-  .filter-label { font-size: 11px; color: #4a7a8a; min-width: 28px; font-weight: 500; }
-  .pill { padding: 5px 13px; border-radius: 20px; font-size: 12px; cursor: pointer; border: 1px solid #b0ced6; background: #fff; color: #2a6a7a; transition: all 0.15s; user-select: none; }
-  .pill:hover { border-color: #1e5f74; color: #1e5f74; }
-  .pill.on { background: #1e5f74; color: #fff; border-color: #1e5f74; font-weight: 500; }
-
-  /* Grid */
-  .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
-  @media (max-width: 700px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  @media (max-width: 420px) { .grid { grid-template-columns: 1fr; } }
-
-  /* Card */
-  .card { background: #fff; border: 1.5px solid #1e5f74; border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s; }
-  .card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(30,95,116,0.15); }
-  .card.hidden { display: none; }
-
-  /* Cover image - clickable */
-  .cover { position: relative; width: 100%; aspect-ratio: 4/3; overflow: hidden; background: #e8f4f7; display: block; text-decoration: none; }
-  .cover img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s; }
-  .cover:hover img { transform: scale(1.03); }
-  .cat-badge { position: absolute; top: 9px; left: 9px; padding: 3px 9px; border-radius: 20px; font-size: 10px; font-weight: 500; z-index: 2; }
-  .region-badge { position: absolute; top: 9px; right: 9px; padding: 3px 9px; border-radius: 20px; font-size: 10px; background: rgba(255,255,255,0.92); color: #1e5f74; border: 1px solid #b0ced6; z-index: 2; }
-
-  /* Category colors */
-  .cat-育兒 { background: #fce8f5; color: #b5348a; }
-  .cat-旅遊 { background: #e0f4e8; color: #1e6e3a; }
-  .cat-美食 { background: #fff3e0; color: #c06000; }
-  .cat-寵物 { background: #e3eeff; color: #2255cc; }
-  .cat-運動 { background: #fff8e0; color: #a07000; }
-  .cat-旅遊票券 { background: #eee3ff; color: #6633cc; }
-
-  /* Card body */
-  .body { padding: 11px 13px 13px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
-  .card-date { font-size: 10px; color: #7aaab8; }
-  .card-title { font-size: 13px; font-weight: 700; color: #1a1a1a; line-height: 1.45; }
-  .card-excerpt { font-size: 11px; color: #555; line-height: 1.75; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; white-space: pre-line; }
-  .chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: auto; padding-top: 8px; border-top: 1px solid #d0e8ee; }
-  .chip { padding: 4px 9px; border-radius: 20px; font-size: 10px; font-weight: 500; border: 1px solid; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 3px; transition: opacity 0.15s; }
-  .chip:hover { opacity: 0.72; }
-  .chip-map { background: #e0f4e8; color: #1e6e3a; border-color: #7acca0; }
-  .chip-book { background: #e3eeff; color: #2255cc; border-color: #90b0f0; }
-  .chip-shop { background: #fff3e0; color: #c06000; border-color: #f0b060; }
-  .chip-ig { background: #fce8f5; color: #b5348a; border-color: #e8a8d0; }
-  .chip-yt { background: #feeaea; color: #b83030; border-color: #f0a0a0; }
-  .chip-thread { background: #f0f0f0; color: #444; border-color: #ccc; }
-  .chip-fb { background: #e3eeff; color: #3860c0; border-color: #90b0f0; }
-  .chip-ticket { background: #eee3ff; color: #6633cc; border-color: #c0a8e8; }
-  .chip-read { background: #1e5f74; color: #fff; border-color: #1e5f74; }
-
-  /* No results */
-  .no-results { grid-column: 1/-1; text-align: center; padding: 3rem 0; color: #aaa; font-size: 14px; display: none; }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Noto Sans TC',sans-serif;background:#fff;color:#1a1a1a;}
+  .wrap{max-width:1000px;margin:0 auto;padding:1.5rem 1rem;}
+  .header{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 1.5rem;margin-bottom:0.75rem;background:#fff;border-radius:14px;border:1.5px solid #1e5f74;}
+  .header-left{display:flex;align-items:center;gap:14px;}
+  .avatar{width:52px;height:52px;border-radius:50%;background:#e8f4f7;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;overflow:hidden;border:2px solid #1e5f74;}
+  .avatar img{width:100%;height:100%;object-fit:cover;}
+  .blog-name{font-size:16px;font-weight:700;color:#1e5f74;}
+  .blog-bio{font-size:12px;color:#4a7a8a;margin-top:3px;}
+  .social-links{display:flex;gap:8px;}
+  .social-btn{width:34px;height:34px;border-radius:50%;border:1.5px solid #1e5f74;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;text-decoration:none;transition:background 0.2s;}
+  .social-btn:hover{background:#e8f4f7;}
+  .social-btn svg{width:16px;height:16px;}
+  .counter-bar{display:flex;align-items:center;justify-content:flex-end;gap:16px;padding:6px 4px;margin-bottom:1rem;}
+  .counter-item{display:flex;align-items:center;gap:5px;font-size:12px;color:#4a7a8a;}
+  .counter-num{font-weight:500;color:#1e5f74;}
+  .filters{display:flex;flex-direction:column;gap:8px;margin-bottom:1.5rem;background:#fff;border-radius:12px;padding:12px 14px;border:1px solid #1e5f74;}
+  .filter-row{display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
+  .filter-label{font-size:11px;color:#4a7a8a;min-width:28px;font-weight:500;}
+  .pill{padding:5px 13px;border-radius:20px;font-size:12px;cursor:pointer;border:1px solid #b0ced6;background:#fff;color:#2a6a7a;transition:all 0.15s;user-select:none;}
+  .pill:hover{border-color:#1e5f74;color:#1e5f74;}
+  .pill.on{background:#1e5f74;color:#fff;border-color:#1e5f74;font-weight:500;}
+  .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;}
+  @media(max-width:700px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+  @media(max-width:420px){.grid{grid-template-columns:1fr;}}
+  .card{background:#fff;border:1.5px solid #1e5f74;border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.2s,box-shadow 0.2s;}
+  .card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(30,95,116,0.15);}
+  .card.hidden{display:none;}
+  .cover{position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;background:#e8f4f7;display:block;text-decoration:none;}
+  .cover img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.3s;}
+  .cover:hover img{transform:scale(1.03);}
+  .cat-badge{position:absolute;top:9px;left:9px;padding:3px 9px;border-radius:20px;font-size:10px;font-weight:500;z-index:2;}
+  .region-badge{position:absolute;top:9px;right:9px;padding:3px 9px;border-radius:20px;font-size:10px;background:rgba(255,255,255,0.92);color:#1e5f74;border:1px solid #b0ced6;z-index:2;}
+  .cat-育兒{background:#fce8f5;color:#b5348a;}
+  .cat-旅遊{background:#e0f4e8;color:#1e6e3a;}
+  .cat-美食{background:#fff3e0;color:#c06000;}
+  .cat-寵物{background:#e3eeff;color:#2255cc;}
+  .cat-運動{background:#fff8e0;color:#a07000;}
+  .cat-資源分享{background:#eee3ff;color:#6633cc;}
+  .body{padding:11px 13px 13px;display:flex;flex-direction:column;gap:6px;flex:1;}
+  .card-date{font-size:10px;color:#7aaab8;}
+  .card-title{font-size:13px;font-weight:700;color:#1a1a1a;line-height:1.45;}
+  .card-excerpt{font-size:11px;color:#555;line-height:1.75;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;white-space:pre-line;}
+  .chips{display:flex;flex-wrap:wrap;gap:4px;margin-top:auto;padding-top:8px;border-top:1px solid #d0e8ee;}
+  .chip{padding:4px 9px;border-radius:20px;font-size:10px;font-weight:500;border:1px solid;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:3px;transition:opacity 0.15s;}
+  .chip:hover{opacity:0.72;}
+  .chip-map{background:#e0f4e8;color:#1e6e3a;border-color:#7acca0;}
+  .chip-book{background:#e3eeff;color:#2255cc;border-color:#90b0f0;}
+  .chip-ig{background:#fce8f5;color:#b5348a;border-color:#e8a8d0;}
+  .chip-yt{background:#feeaea;color:#b83030;border-color:#f0a0a0;}
+  .chip-thread{background:#f0f0f0;color:#444;border-color:#ccc;}
+  .chip-ticket{background:#eee3ff;color:#6633cc;border-color:#c0a8e8;}
+  .chip-read{background:#1e5f74;color:#fff;border-color:#1e5f74;}
+  .no-results{grid-column:1/-1;text-align:center;padding:3rem 0;color:#aaa;font-size:14px;display:none;}
 </style>
 </head>
 <body>
 <div class="wrap">
-
   <div class="header">
     <div class="header-left">
       <div class="avatar"><img src="icon-192.png" alt="軟糖媽咪Ivy"></div>
@@ -134,7 +113,7 @@
       <span class="pill" data-cat="美食">美食</span>
       <span class="pill" data-cat="寵物">寵物</span>
       <span class="pill" data-cat="運動">運動</span>
-      <span class="pill" data-cat="旅遊票券">旅遊票券</span>
+      <span class="pill" data-cat="資源分享">資源分享</span>
     </div>
     <div class="filter-row" id="region-filters">
       <span class="filter-label">地區</span>
@@ -148,12 +127,31 @@
       <span class="pill" data-region="沖繩">沖繩</span>
       <span class="pill" data-region="東京">東京</span>
       <span class="pill" data-region="大阪">大阪</span>
+      <span class="pill" data-region="日本">日本</span>
     </div>
   </div>
 
   <div class="grid" id="grid">
 
-    <!-- 老貝殼親子假期 -->
+    <div class="card" data-cat="資源分享" data-region="日本">
+      <a class="cover" href="posts/travel-site.html">
+        <span class="cat-badge cat-資源分享">資源分享</span>
+        <span class="region-badge">日本</span>
+        <img src="https://drive.google.com/thumbnail?id=1q-SkjbDSzRrMDivgIHlzJbUtFFheJCG3&sz=w800" alt="旅遊比較網站" loading="lazy">
+      </a>
+      <div class="body">
+        <div class="card-date">2026 / 05 / 08</div>
+        <div class="card-title">暑假親子出國懶人包｜五大旅行社行程比較網站</div>
+        <div class="card-excerpt">東京迪士尼、大阪環球、京阪神行程一次比較！
+雄獅、燦星、東南、可樂、易遊網各有什麼特色？
+一鍵連到旅行社直接看出團資訊 🗾</div>
+        <div class="chips">
+          <a class="chip chip-ticket" href="https://travel.wunaitw.com/#tours" target="_blank">🚀 前往網站</a>
+          <a class="chip chip-read" href="posts/travel-site.html">閱讀全文 →</a>
+        </div>
+      </div>
+    </div>
+
     <div class="card" data-cat="育兒" data-region="桃園">
       <a class="cover" href="posts/laobeihe.html">
         <span class="cat-badge cat-育兒">育兒</span>
@@ -175,7 +173,6 @@
       </div>
     </div>
 
-    <!-- 第7篇：免預約親子景點 -->
     <div class="card" data-cat="旅遊" data-region="全台">
       <a class="cover" href="posts/no-reservation-spots.html">
         <span class="cat-badge cat-旅遊">旅遊</span>
@@ -194,7 +191,6 @@
       </div>
     </div>
 
-    <!-- COZU LAB -->
     <div class="card" data-cat="育兒" data-region="台北">
       <a class="cover" href="posts/cozu.html">
         <span class="cat-badge cat-育兒">育兒</span>
@@ -215,7 +211,6 @@
       </div>
     </div>
 
-    <!-- 小人國 -->
     <div class="card" data-cat="育兒" data-region="桃園">
       <a class="cover" href="posts/xiaorenguo.html">
         <span class="cat-badge cat-育兒">育兒</span>
@@ -237,7 +232,6 @@
       </div>
     </div>
 
-    <!-- 恐龍大復活 -->
     <div class="card" data-cat="育兒" data-region="台北">
       <a class="cover" href="posts/dinosaur.html">
         <span class="cat-badge cat-育兒">育兒</span>
@@ -260,7 +254,6 @@
       </div>
     </div>
 
-    <!-- 甲蟲秘境 -->
     <div class="card" data-cat="育兒" data-region="台北">
       <a class="cover" href="posts/jiachu.html">
         <span class="cat-badge cat-育兒">育兒</span>
@@ -282,7 +275,6 @@
       </div>
     </div>
 
-    <!-- 台北市立動物園 -->
     <div class="card" data-cat="旅遊" data-region="台北">
       <a class="cover" href="posts/zoo.html">
         <span class="cat-badge cat-旅遊">旅遊</span>
@@ -303,7 +295,6 @@
       </div>
     </div>
 
-    <!-- USJ 大阪環球影城 -->
     <div class="card" data-cat="旅遊" data-region="大阪">
       <a class="cover" href="posts/usj.html">
         <span class="cat-badge cat-旅遊">旅遊</span>
@@ -326,34 +317,32 @@
 
     <div class="no-results" id="no-results">沒有符合的文章</div>
   </div>
-
 </div>
 
 <script>
-  // Filters
-  let activeCat = 'all', activeRegion = 'all';
-  function filterCards() {
-    const cards = document.querySelectorAll('#grid .card');
-    let visible = 0;
-    cards.forEach(card => {
-      const catOk = activeCat === 'all' || card.dataset.cat === activeCat;
-      const regionOk = activeRegion === 'all' || card.dataset.region === activeRegion;
-      const show = catOk && regionOk;
-      card.classList.toggle('hidden', !show);
-      if (show) visible++;
+  let activeCat='all',activeRegion='all';
+  function filterCards(){
+    const cards=document.querySelectorAll('#grid .card');
+    let visible=0;
+    cards.forEach(card=>{
+      const catOk=activeCat==='all'||card.dataset.cat===activeCat;
+      const regionOk=activeRegion==='all'||card.dataset.region===activeRegion;
+      const show=catOk&&regionOk;
+      card.classList.toggle('hidden',!show);
+      if(show)visible++;
     });
-    document.getElementById('no-results').style.display = visible === 0 ? 'block' : 'none';
+    document.getElementById('no-results').style.display=visible===0?'block':'none';
   }
-  document.querySelectorAll('#cat-filters .pill').forEach(p => {
-    p.addEventListener('click', () => {
-      document.querySelectorAll('#cat-filters .pill').forEach(x => x.classList.remove('on'));
-      p.classList.add('on'); activeCat = p.dataset.cat; filterCards();
+  document.querySelectorAll('#cat-filters .pill').forEach(p=>{
+    p.addEventListener('click',()=>{
+      document.querySelectorAll('#cat-filters .pill').forEach(x=>x.classList.remove('on'));
+      p.classList.add('on');activeCat=p.dataset.cat;filterCards();
     });
   });
-  document.querySelectorAll('#region-filters .pill').forEach(p => {
-    p.addEventListener('click', () => {
-      document.querySelectorAll('#region-filters .pill').forEach(x => x.classList.remove('on'));
-      p.classList.add('on'); activeRegion = p.dataset.region; filterCards();
+  document.querySelectorAll('#region-filters .pill').forEach(p=>{
+    p.addEventListener('click',()=>{
+      document.querySelectorAll('#region-filters .pill').forEach(x=>x.classList.remove('on'));
+      p.classList.add('on');activeRegion=p.dataset.region;filterCards();
     });
   });
 </script>
